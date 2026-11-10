@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4efe6">
+  <meta name="description" content="Temple es un espacio de salud mental online. Medicina, psicoanálisis y escucha del malestar, con Matías Astorga y José Egaña.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Temple — Espacio de Salud Mental">
+  <meta property="og:description" content="Un proyecto clínico para pensar, sentir y cuidar tu salud mental.">
+  <meta property="og:url" content="https://espaciotemple.cl/">
+  <link rel="canonical" href="https://espaciotemple.cl/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script>
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "temple-bg": "#F4EFE6",
+            "temple-green": "#1E382B",
+            "temple-terracotta": "#C85A32",
+            "temple-ink": "#22252A"
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Temple — Espacio de Salud Mental</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --linen: #f4efe6;
+      --paper: #fbf8f2;
+      --forest: #1e382b;
+      --forest-soft: #31503e;
+      --terracotta: #C85A32;
+      --terracotta-dark: #87371e;
+      --ink: #22252A;
+      --muted: #59645d;
+      --line: #ded7ca;
+      --sage: #e4e9dc;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+    body {
+      margin: 0;
+      background: var(--linen);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid #bd5a35;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    .serif { font-family: var(--serif); }
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid rgb(30 56 43 / 9%);
+      background: rgb(244 239 230 / 94%);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner {
+      width: min(1180px, calc(100% - 48px));
+      min-height: 86px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--forest);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .brand-mark { width: 37px; height: 42px; }
+    .brand-name {
+      display: block;
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      line-height: 1;
+    }
+    .brand-caption {
+      display: block;
+      margin-top: 5px;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .desktop-nav { display: flex; align-items: center; gap: clamp(14px, 2vw, 27px); }
+    .desktop-nav a {
+      color: #3e4c44;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .desktop-nav a:hover { color: var(--terracotta-dark); }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 21px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color .2s ease, color .2s ease, transform .2s ease;
+      cursor: pointer;
+    }
+    .button:hover { transform: translateY(-1px); }
+    .button-primary { background: var(--terracotta-dark); color: #fffaf5; }
+    .button-primary:hover { background: var(--forest-soft); }
+    .button-outline { border-color: rgb(30 56 43 / 38%); color: var(--forest); }
+    .button-outline:hover { background: var(--forest); color: white; }
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 9px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--forest);
+      cursor: pointer;
+    }
+    .mobile-nav { display: none; }
+    .page-width { width: min(1100px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--terracotta-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 24px; height: 1px; background: currentColor; content: ""; }
+    .hero {
+      position: relative;
+      min-height: 650px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 88px 0 94px;
+    }
+    .hero::before {
+      position: absolute;
+      top: 4%;
+      right: -9%;
+      width: min(63vw, 790px);
+      aspect-ratio: 1;
+      border: 1px solid rgb(30 56 43 / 9%);
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse at 68% 42%, rgb(200 90 50 / 12%), transparent 42%),
+        radial-gradient(ellipse at 47% 60%, rgb(30 56 43 / 10%), transparent 60%);
+      content: "";
+    }
+    .hero::after {
+      position: absolute;
+      top: 14%;
+      right: 4%;
+      width: min(42vw, 525px);
+      aspect-ratio: .79;
+      border: 1px solid rgb(30 56 43 / 28%);
+      border-bottom: 0;
+      border-radius: 48% 48% 0 0;
+      content: "";
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-copy { max-width: 700px; }
+    .hero h1 {
+      max-width: 720px;
+      margin: 22px 0 18px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: 1.08;
+    }
+    .hero-subtitle { margin: 0; color: var(--forest-soft); font-size: clamp(18px, 2vw, 22px); }
+    .hero-description { max-width: 520px; margin: 18px 0 30px; color: var(--muted); font-size: 17px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note { display: flex; align-items: center; gap: 11px; margin-top: 48px; color: var(--muted); font-size: 13px; }
+    .hero-note span { width: 27px; height: 1px; background: var(--terracotta); }
+    .section { padding: 104px 0; }
+    .section-paper { background: var(--paper); }
+    .section-heading { max-width: 690px; margin: 0 auto 54px; text-align: center; }
+    .section-heading .eyebrow { justify-content: center; }
+    .section-heading h2 {
+      margin: 16px 0 14px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.16;
+    }
+    .section-heading p { max-width: 580px; margin: 0 auto; color: var(--muted); }
+    .manifesto-grid { display: grid; grid-template-columns: .75fr 1.5fr; gap: 70px; align-items: start; }
+    .manifesto-aside { padding-top: 10px; }
+    .manifesto-aside .eyebrow { display: flex; }
+    .manifesto-aside h2 {
+      margin: 18px 0 0;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(37px, 4vw, 50px);
+      font-weight: 500;
+      line-height: 1.12;
+    }
+    .manifesto-copy { padding: 7px 0 0 34px; border-left: 1px solid #c9cfc2; }
+    .manifesto-copy p { margin: 0; color: #45534a; font-size: 18px; line-height: 1.85; }
+    .manifesto-copy p + p { margin-top: 18px; }
+    .quote-mark { display: block; margin-bottom: 12px; color: var(--terracotta); font-family: var(--serif); font-size: 60px; line-height: .8; }
+    .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .team-card {
+      min-height: 340px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .team-card:nth-child(2) { border-top: 3px solid var(--terracotta); }
+    .team-card:first-child { border-top: 3px solid var(--forest); }
+    .team-index { color: var(--terracotta-dark); font-size: 11px; font-weight: 700; letter-spacing: .17em; }
+    .team-card h3 { margin: 22px 0 5px; color: var(--forest); font-family: var(--serif); font-size: 33px; font-weight: 500; line-height: 1.2; }
+    .team-role { margin: 0; color: var(--terracotta-dark); font-size: 14px; font-weight: 600; }
+    .team-detail { margin: 15px 0 23px; color: var(--muted); font-size: 14px; }
+    .team-services { margin: 0; padding-top: 18px; border-top: 1px solid var(--line); color: #45534a; font-size: 14px; }
+    .services-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: stretch; }
+    .pack-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 5vw, 54px);
+      background: var(--forest);
+      color: #f9f5ed;
+    }
+    .pack-card::after {
+      position: absolute;
+      top: -110px;
+      right: -100px;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgb(244 239 230 / 19%);
+      border-radius: 50%;
+      content: "";
+    }
+    .pack-label { position: relative; z-index: 1; color: #e6b29a; font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .pack-card h3 { position: relative; z-index: 1; max-width: 480px; margin: 17px 0 12px; font-family: var(--serif); font-size: clamp(31px, 4vw, 43px); font-weight: 500; line-height: 1.16; }
+    .pack-price { position: relative; z-index: 1; margin: 0 0 28px; color: #f0c6ae; font-family: var(--serif); font-size: 42px; }
+    .pack-list { position: relative; z-index: 1; display: grid; gap: 16px; margin: 0 0 32px; padding: 0; list-style: none; }
+    .pack-list li { display: flex; gap: 12px; color: #f1eee6; font-size: 15px; }
+    .pack-list li::before { color: #e6b29a; content: "—"; }
+    .pack-card .button { background: #e5a181; color: #1e382b; }
+    .pack-card .button:hover { background: #f0b597; }
+    .conditions-card { padding: 32px; border: 1px solid var(--line); background: #ece9df; }
+    .conditions-card h3 { margin: 3px 0 23px; color: var(--forest); font-family: var(--serif); font-size: 28px; font-weight: 500; }
+    .condition-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .condition { display: grid; grid-template-columns: 30px 1fr; align-content: start; column-gap: 12px; padding: 17px 0; border-top: 1px solid #d4d0c5; }
+    .condition svg { grid-row: span 2; margin-top: 2px; color: var(--terracotta-dark); }
+    .condition-label { margin: 0 0 5px; color: var(--terracotta-dark); font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .condition p:last-child { grid-column: 2; margin: 0; color: #45534a; font-size: 14px; }
+    .legal-notice {
+      display: flex;
+      gap: 17px;
+      align-items: flex-start;
+      margin-top: 24px;
+      padding: 21px 24px;
+      border-left: 3px solid var(--terracotta);
+      background: #f0e2d5;
+      color: #493d35;
+      font-size: 14px;
+    }
+    .legal-notice svg { flex: 0 0 21px; margin-top: 2px; color: var(--terracotta-dark); }
+    .faq-list { max-width: 790px; margin: 0 auto; border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 2px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: 19px;
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { color: var(--terracotta); content: "+"; font-family: var(--sans); font-size: 24px; }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-answer { max-width: 700px; padding: 0 35px 20px 2px; color: var(--muted); font-size: 15px; }
+    .faq-answer p { margin: 0; }
+    .booking { padding: 94px 0 102px; background: #e9e9df; }
+    .booking .section-heading { margin-bottom: 34px; }
+    .booking-frame {
+      min-height: 690px;
+      overflow: hidden;
+      border: 1px solid #d6d5ca;
+      background: #fff;
+    }
+    .calendly-inline-widget { min-width: 320px; height: 700px; }
+    .booking-fallback { padding: 0 20px 20px; text-align: center; color: var(--muted); font-size: 14px; }
+    .booking-fallback a { color: var(--terracotta-dark); font-weight: 600; }
+    .site-footer { padding: 55px 0 27px; background: var(--forest); color: #f2efe7; }
+    .footer-main { display: flex; justify-content: space-between; gap: 40px; padding-bottom: 38px; }
+    .footer-brand .brand { color: #f2efe7; }
+    .footer-brand p { max-width: 290px; margin: 14px 0 0; color: #c5d0c6; font-size: 13px; }
+    .footer-contact h2 { margin: 0 0 13px; font-family: var(--serif); font-size: 21px; font-weight: 500; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { color: #f0c6ae; font-size: 14px; text-underline-offset: 4px; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid rgb(244 239 230 / 19%); color: #c5d0c6; font-size: 12px; }
+    .footer-bottom p { margin: 0; }
+    @media (max-width: 920px) {
+      .desktop-nav { gap: 13px; }
+      .desktop-nav a { font-size: 12px; }
+      .header-inner { width: min(100% - 36px, 1180px); gap: 16px; }
+      .header-cta { padding-inline: 14px; font-size: 13px; }
+    }
+    @media (max-width: 760px) {
+      .header-inner { min-height: 74px; }
+      .desktop-nav, .header-cta { display: none; }
+      .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      .mobile-nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        padding: 10px 24px 22px;
+        border-bottom: 1px solid var(--line);
+        background: var(--linen);
+      }
+      .mobile-nav[data-open="true"] { display: grid; }
+      .mobile-nav a { padding: 11px 0; border-bottom: 1px solid rgb(30 56 43 / 9%); color: var(--forest); font-size: 15px; text-decoration: none; }
+      .mobile-nav .button { margin-top: 14px; border: 0; color: white; }
+      .hero { min-height: auto; padding: 88px 0 74px; }
+      .hero::before { top: 19%; right: -48%; width: 110vw; }
+      .hero::after { top: 22%; right: -13%; width: 64vw; }
+      .hero h1 { max-width: 610px; font-size: clamp(42px, 10vw, 62px); }
+      .hero-copy { max-width: 580px; }
+      .hero-description { max-width: 470px; }
+      .hero-note { margin-top: 36px; }
+      .section { padding: 77px 0; }
+      .manifesto-grid { grid-template-columns: 1fr; gap: 27px; }
+      .manifesto-aside h2 { max-width: 520px; }
+      .manifesto-copy { padding-left: 22px; }
+      .team-grid { gap: 14px; }
+      .team-card { padding: 26px; }
+      .services-layout { grid-template-columns: 1fr; }
+      .conditions-card { padding: 26px; }
+      .condition-grid { grid-template-columns: 1fr; gap: 0; }
+      .booking { padding: 76px 0; }
+      .booking-frame { min-height: 700px; }
+      .calendly-inline-widget { height: 700px; }
+    }
+    @media (max-width: 540px) {
+      .page-width { width: calc(100% - 38px); }
+      .brand-mark { width: 32px; height: 37px; }
+      .brand-name { font-size: 22px; }
+      .brand-caption { font-size: 8px; }
+      .hero { padding: 69px 0 64px; }
+      .hero h1 { font-size: clamp(39px, 11vw, 52px); }
+      .hero-subtitle { max-width: 300px; font-size: 18px; line-height: 1.5; }
+      .hero-description { max-width: 360px; font-size: 15px; }
+      .hero-actions { align-items: stretch; flex-direction: column; max-width: 330px; }
+      .hero-actions .button { width: 100%; }
+      .hero-note { max-width: 300px; align-items: flex-start; font-size: 12px; }
+      .section { padding: 67px 0; }
+      .section-heading { margin-bottom: 36px; }
+      .section-heading h2 { font-size: 36px; }
+      .section-heading p { font-size: 15px; }
+      .manifesto-copy p { font-size: 16px; line-height: 1.8; }
+      .team-grid { grid-template-columns: 1fr; }
+      .team-card { min-height: unset; }
+      .team-card h3 { font-size: 30px; }
+      .pack-card { padding: 31px 25px; }
+      .pack-price { font-size: 37px; }
+      .conditions-card { padding: 25px 22px; }
+      .legal-notice { padding: 17px; font-size: 13px; }
+      .faq-item summary { font-size: 17px; }
+      .booking-frame { min-height: 720px; margin-inline: -1px; }
+      .calendly-inline-widget { min-width: 0; height: 720px; }
+      .footer-main { flex-direction: column; gap: 29px; }
+      .footer-bottom { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-4 focus:py-3">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="Temple, ir al inicio">
+        <svg class="brand-mark" viewBox="0 0 44 50" fill="none" aria-hidden="true">
+          <path d="M5 45V23a17 17 0 0 1 34 0v22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="22" cy="21" r="4.3" fill="currentColor"/>
+          <path d="M22 30v15" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span><span class="brand-name">TEMPLE</span><span class="brand-caption">Espacio de Salud Mental</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#manifiesto">Enfoque</a>
+        <a href="#equipo">Profesionales</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="button button-primary header-cta" href="https://calendly.com/espaciotemple/reserva" data-calendly-popup>Reservar hora</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav id="mobile-menu" class="mobile-nav" aria-label="Navegación móvil" data-open="false" hidden>
+      <a href="#inicio">Inicio</a>
+      <a href="#manifiesto">Enfoque</a>
+      <a href="#equipo">Profesionales</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+      <a class="button button-primary" href="https://calendly.com/espaciotemple/reserva" data-calendly-popup>Reservar hora</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="page-width hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">Un espacio para escuchar</span>
+          <h1 id="hero-title">Un proyecto clínico para pensar, sentir y cuidar tu salud mental</h1>
+          <p class="hero-subtitle">Medicina, psicoanálisis y escucha del malestar.</p>
+          <p class="hero-description">El malestar no es solo un síntoma que hay que silenciar: es una historia que necesita ser escuchada.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://calendly.com/espaciotemple/reserva" data-calendly-popup>Agendar pack inicial <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="#manifiesto">Conocer el enfoque</a>
+          </div>
+          <p class="hero-note"><span aria-hidden="true"></span>Atención online · Particular · Santiago, Chile</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-paper" id="manifiesto" aria-labelledby="manifesto-title">
+      <div class="page-width manifesto-grid">
+        <div class="manifesto-aside">
+          <span class="eyebrow">Nuestro manifiesto</span>
+          <h2 id="manifesto-title">Escuchar antes que silenciar.</h2>
+        </div>
+        <div class="manifesto-copy">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p>Somos Matías Astorga, psicólogo con formación psicoanalítica, y José Egaña, médico de salud mental y estudiante de Psicología. Ambos con más de 10 años de experiencia en salud pública y una mirada psicoanalítica, con conciencia social, que nos invita a comprender el malestar más allá de la reducción de sus síntomas, dando lugar a la historia, los vínculos y las condiciones de vida de cada persona.</p>
+          <p>Creemos en una práctica clínica que toma en serio la singularidad de cada historia y acompaña a cada persona desde una mirada integral.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="equipo" aria-labelledby="team-title">
+      <div class="page-width">
+        <div class="section-heading">
+          <span class="eyebrow">Equipo profesional</span>
+          <h2 id="team-title">Dos miradas, un espacio de escucha.</h2>
+          <p>Experiencia clínica y trabajo conjunto para acompañar distintos momentos de tu proceso.</p>
+        </div>
+        <div class="team-grid">
+          <article class="team-card">
+            <span class="team-index">01 — PSICOLOGÍA</span>
+            <h3>Matías Astorga</h3>
+              <p class="team-role">Psicólogo · Formación psicoanalítica</p>
+            <p class="team-detail">Enfoque psicoanalítico · Más de 10 años de experiencia en salud pública.</p>
+            <p class="team-services">Evaluación, escucha clínica y psicoterapia de continuidad.</p>
+          </article>
+          <article class="team-card">
+            <span class="team-index">02 — MEDICINA</span>
+            <h3>José Egaña</h3>
+            <p class="team-role">Médico de salud mental · Estudiante de Psicología</p>
+            <p class="team-detail">Enfoque clínico integral · Más de 10 años de experiencia en salud pública.</p>
+            <p class="team-services">Evaluación, seguimiento clínico, solicitud de exámenes y prescripción farmacológica cuando corresponda.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-paper" id="servicios" aria-labelledby="services-title">
+      <div class="page-width">
+        <div class="section-heading">
+          <span class="eyebrow">Atención y servicios</span>
+          <h2 id="services-title">Un primer paso acompañado.</h2>
+          <p>Un espacio inicial para comprender lo que estás viviendo y explorar juntos las alternativas de atención.</p>
+        </div>
+        <div class="services-layout">
+          <article class="pack-card">
+            <span class="pack-label">Pack inicial de dos intervenciones</span>
+            <h3>Una primera aproximación a tu historia.</h3>
+            <p class="pack-price">$40.000 <span style="font-family: var(--sans); font-size: 14px;">CLP</span></p>
+            <ul class="pack-list">
+              <li>1 sesión psicológica de evaluación y orientación clínica con Matías Astorga.</li>
+              <li>1 consulta médica de evaluación y seguimiento clínico con José Egaña.</li>
+            </ul>
+            <a class="button" href="https://calendly.com/espaciotemple/reserva" data-calendly-popup>Agendar pack inicial <span aria-hidden="true">↗</span></a>
+          </article>
+          <aside class="conditions-card" aria-labelledby="conditions-title">
+            <h3 id="conditions-title">Información práctica</h3>
+            <div class="condition-grid">
+              <div class="condition">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 21h8m-4-4v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <p class="condition-label">Modalidad</p>
+                <p>100% online · Atención particular.</p>
+              </div>
+              <div class="condition">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="condition-label">Horarios</p>
+                <p>Lunes y martes desde las 18:00 hrs. Sábados desde las 09:00 hrs.</p>
+              </div>
+              <div class="condition">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3.5h11l3 3V21H5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15.5 3.5V7H19m-10 5h6m-6 4h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="condition-label">Reembolso</p>
+                <p>Emisión de boleta para Isapres y seguros complementarios.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="legal-notice" role="note" aria-label="Aviso clínico">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5m0-8h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>La prescripción farmacológica, recetas y solicitudes de exámenes corresponden exclusivamente al médico y están sujetas a evaluación clínica. No se emiten licencias médicas.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preguntas" aria-labelledby="faq-title">
+      <div class="page-width">
+        <div class="section-heading">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2 id="faq-title">Lo esencial, antes de comenzar.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>¿Cómo funciona el pack inicial?</summary>
+            <div class="faq-answer"><p>Incluye una sesión psicológica de evaluación y orientación clínica con Matías Astorga y una consulta médica de evaluación y orientación clínica con José Egaña. El valor total es de $40.000 CLP.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Las atenciones son online?</summary>
+            <div class="faq-answer"><p>Sí. Todas las atenciones son 100% online y en modalidad particular.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo solicitar reembolso?</summary>
+            <div class="faq-answer"><p>Se emite boleta para que puedas gestionar el reembolso con tu Isapre o seguro complementario, de acuerdo con las condiciones de tu plan.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Se emiten recetas o licencias médicas?</summary>
+            <div class="faq-answer"><p>La prescripción farmacológica, recetas y solicitudes de exámenes corresponden exclusivamente al médico y están sujetas a evaluación clínica. No se emiten licencias médicas.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="agenda" aria-labelledby="booking-title">
+      <div class="page-width">
+        <div class="section-heading">
+          <span class="eyebrow">Reserva tu hora</span>
+          <h2 id="booking-title">Agenda tu atención</h2>
+          <p>Elige el horario que mejor te acomode. La atención es online.</p>
+        </div>
+        <div class="booking-frame">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/espaciotemple/reserva" style="min-width:320px;height:700px;" aria-label="Calendario para reservar una hora con Temple"></div>
+        </div>
+        <p class="booking-fallback">¿No ves el calendario? <a href="https://calendly.com/espaciotemple/reserva" target="_blank" rel="noopener noreferrer">Abrir reservas en Calendly</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacto">
+    <div class="page-width">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#inicio" aria-label="Temple, volver al inicio">
+            <svg class="brand-mark" viewBox="0 0 44 50" fill="none" aria-hidden="true">
+              <path d="M5 45V23a17 17 0 0 1 34 0v22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="22" cy="21" r="4.3" fill="currentColor"/>
+              <path d="M22 30v15" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span><span class="brand-name">TEMPLE</span><span class="brand-caption">Espacio de Salud Mental</span></span>
+          </a>
+          <p>Medicina, psicoanálisis y escucha del malestar.</p>
+        </div>
+        <div class="footer-contact">
+          <h2>Estamos para escucharte.</h2>
+          <div class="footer-links">
+            <a id="contact-email" href="#" hidden>Escríbenos por correo</a>
+            <a id="contact-whatsapp" href="#" target="_blank" rel="noopener noreferrer" hidden>Contáctanos por WhatsApp</a>
+            <a href="https://calendly.com/espaciotemple/reserva" target="_blank" rel="noopener noreferrer">Reservar una hora</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year"></span> Temple - Espacio de Salud Mental. <a href="https://espaciotemple.cl">espaciotemple.cl</a></p>
+        <p>Atención online · Chile</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    (() => {
+      // Completa estos datos para mostrar los enlaces directos de contacto.
+      const contactEmail = "";
+      const whatsappUrl = "";
+      const toggle = document.querySelector(".menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const emailLink = document.getElementById("contact-email");
+      const whatsappLink = document.getElementById("contact-whatsapp");
+
+      if (contactEmail) {
+        emailLink.href = `mailto:${contactEmail}`;
+        emailLink.hidden = false;
+      }
+      if (whatsappUrl) {
+        whatsappLink.href = whatsappUrl;
+        whatsappLink.hidden = false;
+      }
+      const closeMenu = () => {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menú");
+        menu.dataset.open = "false";
+        menu.hidden = true;
+      };
+
+      toggle.addEventListener("click", () => {
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+        toggle.setAttribute("aria-label", isOpen ? "Abrir menú" : "Cerrar menú");
+        menu.dataset.open = String(!isOpen);
+        menu.hidden = isOpen;
+      });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      document.querySelectorAll("[data-calendly-popup]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          if (window.Calendly && typeof window.Calendly.initPopupWidget === "function") {
+            event.preventDefault();
+            window.Calendly.initPopupWidget({ url: link.href });
+          }
+        });
+      });
+
+      document.getElementById("current-year").textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
